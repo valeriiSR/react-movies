@@ -17,7 +17,11 @@ class Content extends Component{
     this.setState({ loading: true })
     fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s=${str}${type !== 'all' 
         ? `&type=${type}`
-        : ''}`)
+        : ''}`, {
+          headers: {
+            "Content-Type": "text/plain; charset=UTF-8"
+          }
+        })
       .then(response => response.json())
       .then(data => this.setState({ movies: data.Search, loading: false }))
       .catch((err) => {
@@ -26,7 +30,11 @@ class Content extends Component{
   }
 
   componentDidMount(){
-    fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s=matrix&page=1`)
+    fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s=matrix&page=1`, {
+      headers: {
+        "Content-Type": "text/plain; charset=UTF-8"
+      }
+    })
       .then(response => response.json())
       .then(data => this.setState({ movies: data.Search, loading: false }))
       .catch((err) => {
