@@ -4,8 +4,8 @@ import { Preloader } from './Preloader';
 import { Cards } from './Cards';
 import { Search } from './Search';
 
-const API_KEY = process.env.REACT_APP_API_KEY;
-// console.log(API_KEY);
+// const API_KEY = process.env.REACT_APP_API_KEY;
+const API_KEY = '608a32c4';
 
 class Content extends Component{
   state = {
